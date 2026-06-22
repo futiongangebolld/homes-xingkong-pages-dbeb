@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #1e2b38;
+      line-height: 1.6;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 蓝绿点缀色系 */
+    .accent-light {
+      color: #2b7a6e;
+    }
+
+    .accent-bg {
+      background: #e2f0ed;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #d1e7e3;
+      color: #1a5c52;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid #cfdfda;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #113731;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #1b7567 0%, #319f8b 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.1rem;
+      color: #3d5350;
+    }
+
+    .hero .badge-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* 摘要网格卡片 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 600px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 6px 18px rgba(0, 40, 30, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.2s ease;
+      border: 1px solid #deece8;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(27, 117, 103, 0.08);
+      border-color: #b3d1c9;
+    }
+
+    .card .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #10322c;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.96rem;
+      color: #37524a;
+    }
+
+    .card .small-note {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: #60847a;
+      border-left: 3px solid #b6d3cb;
+      padding-left: 0.75rem;
+    }
+
+    /* 使用场景 + 提示组合 */
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .scenario-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem 3rem;
+      background: #f0f8f5;
+      padding: 2rem 2rem 2.2rem;
+      border-radius: 32px;
+    }
+
+    .scenario-item {
+      flex: 1 1 220px;
+    }
+
+    .scenario-item h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1b6c60;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scenario-item p {
+      color: #38544b;
+      font-size: 0.95rem;
+    }
+
+    .tip-box {
+      background: white;
+      border-radius: 28px;
+      padding: 1.6rem 2rem 2rem;
+      border: 1px solid #c8ddd6;
+    }
+
+    .tip-box h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: #13574b;
+      margin-bottom: 1rem;
+    }
+
+    .tip-box p {
+      margin-bottom: 0.8rem;
+      color: #2d4b42;
+    }
+
+    .tip-box .faq-line {
+      display: inline-block;
+      background: #eaf3ef;
+      border-radius: 40px;
+      padding: 0.3rem 1.2rem;
+      margin: 0.3rem 0.2rem;
+      font-size: 0.9rem;
+      color: #1b5b50;
+    }
+
+    /* 链接自然嵌入 */
+    .link-sentence {
+      background: #e7f3ef;
+      padding: 1.6rem 2rem;
+      border-radius: 40px;
+      margin-top: 1.2rem;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #1d423b;
+    }
+
+    .link-sentence a {
+      color: #116b5b;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #99bfb4;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .link-sentence a:hover {
+      border-bottom-color: #116b5b;
+      color: #0a4c41;
+    }
+
+    /* 简单的footer */
+    .footer-note {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #cfddd8;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #59756b;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d4e3dd;
+      margin: 1.5rem 0;
+    }
+
+    /* 移动端精细调整 */
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .scenario-wrap {
+        padding: 1.5rem;
+      }
+      .link-sentence {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="badge-group">
+      <span class="badge">📍 稳定入口</span>
+      <span class="badge">📋 产品说明</span>
+    </div>
+    <h1>
+      <span>竞彩网</span> · 从信息到引导
+    </h1>
+    <p>
+      一个围绕竞彩资讯与数据查询而设计的服务页面，致力于提供清晰的结构、
+      克制的访问指引，以及日常使用中值得留意的细节。不渲染，不夸张。
+    </p>
+  </div>
+
+  <!-- 亮点网格卡片 (产品说明式) -->
+  <div class="grid-cards">
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>摘要 · 定位</h3>
+      <p>聚合竞彩相关的基础信息、赛事数据预览和简要说明。不替代专业平台，而是作为辅助参考的稳定页面。</p>
+      <span class="small-note">信息组织以清晰优先</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>核心亮点</h3>
+      <p>页面结构偏向实用性：快速了解竞彩规则、常见术语，以及数据呈现方式。适合新用户或偶尔查阅的人。</p>
+      <span class="small-note">减少冗余，直达主题</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧭</div>
+      <h3>使用建议</h3>
+      <p>将本页视为进入竞彩信息前的一扇窗。先浏览摘要与FAQ式提示，再通过下方链接进入更具体的服务页面。</p>
+      <span class="small-note">有条理地开始</span>
+    </div>
+  </div>
+
+  <!-- 场景 + 提示组合 (差异化结构) -->
+  <div class="info-block">
+    <div class="scenario-wrap">
+      <div class="scenario-item">
+        <h4>📅 日常查阅</h4>
+        <p>想快速了解最新竞彩赛事编号、开奖结果概览？页面提供静态摘要，数据更新节奏请参照官方公告。</p>
+      </div>
+      <div class="scenario-item">
+        <h4>📘 规则辅助</h4>
+        <p>投注方式、奖金计算示例等常见疑问，在FAQ卡片中有简洁说明，帮助降低理解门槛。</p>
+      </div>
+      <div class="scenario-item">
+        <h4>🔐 可信访问</h4>
+        <p>只推荐通过唯一且稳定的地址访问。下方提供了直达链接，建议将此页收藏作为起始参考。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 + 克制的提示 -->
+    <div class="tip-box">
+      <h3>❓ 常见说明摘要</h3>
+      <p><span class="faq-line">竞彩是什么？</span> 指对体育比赛结果进行竞猜的彩票玩法，由国家体育总局体育彩票管理中心统一发行。</p>
+      <p><span class="faq-line">是否需要注册？</span> 浏览信息通常无需登录，但涉及实际投注需在合规渠道完成实名操作。</p>
+      <p><span class="faq-line">信息可靠吗？</span> 本站内容仅供参考查阅，具体开奖结果、赛事信息以官方发布为准，请理性对待。</p>
+      <p style="margin-top: 0.6rem; font-style: italic; opacity: 0.8;">⏳ 更多细节可关注页面后续更新，或直接访问服务页面。</p>
+    </div>
+  </div>
+
+  <!-- 自然嵌入链接（严格满足：可见文本 == "竞彩网"） -->
+  <div class="link-sentence">
+    <p>如果你想进一步查阅赛事数据、规则文档或最新的竞彩动态，可以直接前往
+      <a href="https://main-zh-sporttery.com">竞彩网</a>，那里聚合了更完整的信息页面与功能入口。
+    </p>
+  </div>
+
+  <!-- 再一个解释，强调可信但克制 -->
+  <div style="margin: 2rem 0 1rem; padding: 0.5rem 0;">
+    <p style="font-size: 0.95rem; color: #3b5b52; text-align: center; max-width: 700px; margin: 0 auto;">
+      本介绍页仅作为产品说明与稳定入口指引，不包含任何投注引导或结果承诺。
+      请用户通过正规渠道了解竞彩，并始终遵守所在地法律法规。
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <span>产品说明 · 竞彩网入口页 &nbsp;|&nbsp; 内容仅供参考 </span>
+  </div>
+
+</div>
+</body>
+</html>
